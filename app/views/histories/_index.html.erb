@@ -1,0 +1,34 @@
+<table class="table table-hover table-striped details-table history-tab-table" id="history_table">
+  <thead>
+    <tr>
+      <th class="action">Sender Name</th>
+      <th class="action">Send Coin</th>
+      <th class="action">Coin Amount</th>
+      <th>Sent At</th>
+      <th>Reciever Name</th>
+      <th class="action">Sender CoinSpark Address</th>
+      <th class="action">Tag</th>
+      <th class="action">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @coin_types.each do |coin_type|%>
+    <% find_transaction_history(coin_type)%>
+    <% @histories.each do |send_history|%>
+      <tr>
+        <td><%= send_history["senderName"]%></td>
+        <td><%= send_history["coinTypeName"]%></td>
+        <td><%= send_history["amountReceived"]%></td>
+        <td><%= (send_history["createdAt"]).to_time.strftime("%d %b %Y")%></td>
+        <td><%= send_history["receiverName"]%></td>
+        <td><%= find_user(send_history["senderUserID"])%></td>
+        <td><%= send_history["tagName"]%></td>
+        <td>
+          <%= link_to "Edit",edit_history_path(send_history["objectId"]),class: "btn edit-btn"%><br><br>
+          <%= link_to 'Delete',history_path(send_history["objectId"]),method: :delete, :data => {:confirm => 'Are you sure?'},class: "btn delete-btn" if @user["role_name"].eql?("Admin") %>
+        </td>
+      </tr>
+    <%end%>
+   <%end%>
+  </tbody>
+</table>

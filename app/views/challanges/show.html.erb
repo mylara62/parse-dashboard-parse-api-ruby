@@ -1,0 +1,61 @@
+<div class="container">
+	<h3>Trigger</h3>
+	<p>
+		<strong>ObjectId:</strong>
+		<%= @trigger["objectId"]%>
+	</p>
+	<p>
+		<strong>period:</strong>
+		<%= @trigger["period"]%>
+	</p>
+	<p>
+		<strong>actionName:</strong>
+		<%= @trigger["actionName"]%>
+	</p>
+	<p>
+		<strong>expiryDate:</strong>
+		<%= (@trigger["expiryDate"]).to_time.strftime("%d %b %Y")%>
+	</p>
+	<p>
+		<strong>rewardCoinTypeName:</strong>
+		<%= @trigger["rewardCoinTypeName"]%>
+	</p>
+	<p>
+		<strong>coinTypeID:</strong>
+		<%= @trigger["coinTypeID"]%>
+	</p>
+
+	<p>
+		<strong>creatorID:</strong>
+		<%= @trigger["creatorID"]%>
+	</p>
+	<p>
+		<strong>groupName:</strong>
+		<%= @trigger["groupName"]%>
+	</p>
+	<p>
+		<strong>coinID:</strong>
+		<%= @trigger["coinID"]%>
+	</p>
+	<p>
+		<strong>rewardCoinTypeID:</strong>
+		<%= @trigger["rewardCoinTypeID"]%>
+	</p>
+	<p>
+		<strong>challengeStatus:</strong>
+		<%= @trigger["challengeStatus"]%>
+	</p>
+	<p>
+		<strong>tags:</strong>
+		<%= @trigger["tags"]%>
+	</p>
+	<p>
+		<strong>amountCoinsReward:</strong>
+		<%= @trigger["amountCoinsReward"]%>
+	</p>
+	<p>
+		<strong>numberOfRepeat:</strong>
+		<%= @trigger["numberOfRepeat"]%>
+	</p><br><br>
+	<%= link_to "Dashboard",dashboard_path,class: "btn btn-warning"%>
+</div>

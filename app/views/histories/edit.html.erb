@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="col-md-10">
+    <h3>Edit history</h3>
+    <%= form_tag update_history_history_path(@history["objectId"]),method: "put" do %>
+      <div class="form-group">
+        <label for="senderName">period</label>
+        <%= text_field_tag "senderName",nil,class: "form-control",value: @history["senderName"],required: :true%>
+      </div>
+      <div class="form-group">
+        <label for="tagName">tagName</label>
+        <%= text_field_tag "tagName",nil,class: "form-control",value: @history["tagName"],required: :true%>
+      </div>
+      <div class="form-group">
+        <label for="receiverAddress">receiverAddress</label>
+        <%= text_field_tag "receiverAddress",nil,class: "form-control",value: @history["receiverAddress"],required: :true%>
+      </div>
+      <div class="form-group">
+        <label for="coinTypeID">coinTypeID</label>
+        <%= text_field_tag "coinTypeID",nil,class: "form-control",value: @history["coinTypeID"],required: :true%>
+      </div>
+      <div class="form-group">
+        <label for="receiverID">receiverID</label>
+        <%= text_field_tag "receiverID",nil,class: "form-control",value: @history["receiverID"],required: :true%>
+      </div>
+      <div class="form-group">
+        <label for="commentString">commentString</label>
+        <%= text_field_tag "commentString",nil,class: "form-control",value: @history["commentString"],required: :true%>
+      </div>
+      <div class="form-group">
+        <label for="coinTypeName">coinTypeName</label>
+        <%= text_field_tag "coinTypeName",nil,class: "form-control",value: @history["coinTypeName"],required: :true%>
+      </div>
+      <div class="form-group">
+        <label for="amountReceived">amountReceived</label>
+        <%= text_field_tag "amountReceived",nil,class: "form-control",value: @history["amountReceived"],required: :true%>
+      </div>
+      <div class="form-group">
+        <label for="receiverName">receiverName</label>
+        <%= text_field_tag "receiverName",nil,class: "form-control",value: @history["receiverName"],required: :true%>
+      </div>
+      <div class="form-group">
+        <label for="senderUserID">senderUserID</label>
+        <%= text_field_tag "senderUserID",nil,class: "form-control",value: @history["senderUserID"],required: :true%>
+      </div>
+      <div class="form-group">
+        <label for="senderAddress">senderAddress</label>
+        <%= text_field_tag "senderAddress",nil,class: "form-control",value: @history["senderAddress"],required: :true%>
+      </div>
+      <%= submit_tag "Update history",class: "btn btn-primary"%>
+      <%= link_to "Back",dashboard_path,class: "btn btn-warning"%>
+    <%end%>
+  </div>
+</div>
+<br><br>
+

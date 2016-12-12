@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+
+    <div class="main">
+
+      <h3>Please Login , or <a href="<%= sign_up_users_path %>">Sign Up</a></h3>
+      <div class="row"></div>
+      <div class="login-or">
+        <hr class="hr-or">
+        <span class="span-or">or</span>
+      </div>
+      <%= form_tag create_sign_in_users_path,method: "post" do %>
+        <div class="form-group">
+          <label for="inputUsername">Username</label>
+          <%= text_field_tag "username",nil,class: "form-control"%>
+        </div>
+        <div class="form-group">
+          <!-- <a class="pull-right" href="#">Forgot password?</a> -->
+          <label for="inputPassword">Password</label>
+          <%= password_field_tag "password",nil,class: "form-control"%>
+        </div>
+        <%= submit_tag "Log In",class: "btn btn btn-primary"%>
+      <%end%>
+    </div>
+    
+  </div>
+</div>
+

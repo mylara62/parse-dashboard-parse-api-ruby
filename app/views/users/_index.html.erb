@@ -1,0 +1,39 @@
+<table class="table table-hover table-striped details-table history-tab-table" id="user_table">
+  <thead>
+    <tr>
+      <th class="action">Photo</th>
+      <th class="action">User Name</th>
+      <th class="action">Profile Name</th>
+      <th>Created At</th>
+      <th>Bitcoin Address</th>
+      <th class="action">CoinSpark Address</th>
+      <!-- <th>Coin Amount</th> -->
+    </tr>
+  </thead>
+  <tbody>
+   <% unless @user["role_name"].eql?("User") %>
+    <% unless @coins_users.blank? %>
+      <% @coins_users.each do |user|%>
+        <% get_user(user) %>
+        <tr>
+          <td><%= image_tag @coin_user["photoUrl"],style: "width: 30%;" rescue nil %></td>
+          <td><%= @coin_user["username"]%></td>
+          <td><%= @coin_user["profileName"]%></td>
+          <td><%= (@coin_user["createdAt"]).to_time.strftime("%d %b %Y") %></td>
+          <td><%= @coin_user["bitcoinAddress"]%></td>
+          <td><%= @coin_user["coinsparkAddress"]%></td>
+        </tr>
+      <%end%>
+    <%end%>
+   <%else%>
+    <tr>
+      <td><%= image_tag @user["photoUrl"],style: "width: 53%;" rescue nil %></td>
+      <td><%= @user["username"]%></td>
+      <td><%= @user["profileName"]%></td>
+      <td><%= (@user["createdAt"]).to_time.strftime("%d %b %Y") %></td>
+      <td><%= @user["bitcoinAddress"]%></td>
+      <td><%= @user["coinsparkAddress"]%></td>
+    </tr>
+   <%end%>
+  </tbody>
+</table>

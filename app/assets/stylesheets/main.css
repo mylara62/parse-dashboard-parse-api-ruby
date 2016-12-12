@@ -1,0 +1,222 @@
+@charset "utf-8";
+/* CSS Document */
+.dataTables_filter{
+	display: none;
+}
+.dataTables_length{
+	display: none;
+}
+.nav-bar-main {
+	background-color:#fff;
+	border-bottom:1px solid #eeefef;
+	min-height:80px;
+}
+.nav-bar-main .navbar-nav > .active > a, .nav-bar-main .navbar-nav > .active > a:focus, .nav-bar-main .navbar-nav > .active > a:hover {
+	background-color: #fff;
+	color: #333;
+}
+.nav-bar-main .navbar-nav > .active > a:hover {
+	background-color: #fff !important;
+	color: #333 !important;
+}
+.nav-bar-main .navbar-nav a:hover {
+	background-color: #fff !important;
+	color: #333 !important;
+}
+.nav-bar-main .navbar-nav > .active > a i {
+	color:#34af22;
+}
+.side-nav > li > a > i {
+	margin-right:10px;
+}
+/*.............nav-tabs css here.................*/
+#tabs-panel {
+	border-bottom: none;
+}
+#tabs-panel > li.active > a, #tabs-panel > li.active > a:focus, #tabs-panel > li.active > a:hover {
+	border-width: 0;
+}
+#tabs-panel > li > a {
+	border: none;
+	color: #666;
+	display:inline-block;
+	text-transform:uppercase;
+}
+#tabs-panel > li.active > a, #tabs-panel > li > a:hover {
+	border: none;
+	color: #333 !important;
+	background: transparent;
+	cursor: pointer;
+}
+#tabs-panel > li > a::after {
+	content: "";
+	background: #4285F4;
+	height: 3px;
+	position: absolute;
+	width: 100%;
+	left: 0px;
+	bottom: -1px;
+	transition: all 250ms ease 0s;
+	transform: scale(0);
+}
+ #tabs-panel > li.active > a::after, #tabs-panel > li:hover > a::after {
+	transform: scale(1);
+}
+#tabs-panel > li > a::after {
+	background: #34af22 none repeat scroll 0% 0%;
+	color: #fff;
+}
+.tab-pane {
+	padding: 15px 0;
+}
+.tab-content {
+	padding:20px 0px;
+}
+.card {
+	background: #FFF none repeat scroll 0% 0%;
+	box-shadow: none;
+	margin-bottom: 30px;
+}
+#tabs-panel li {
+    width: 22%;
+}
+/*.............nav-tabs css end.................*/
+.details-table th{
+	font-weight:normal;
+	color:#666;
+}
+.details-table .checkbox{
+	margin:0;
+}
+.details-table{
+	font-size:12px;
+}
+.details-table td{
+	font-weight:normal;
+	color:#333;
+}
+.top-content {
+  overflow-y: auto;
+  padding: 20px 0;
+}
+.clear-box{
+	margin:0 !important;
+	padding: 0 !important;
+}
+.create-coin-btn {
+  background: #34af22 none repeat scroll 0 0;
+  font-weight: bold;
+  padding: 5px 20px;
+	color:#fff;
+}
+.create-coin-btn:hover{
+	color: #fff;
+}
+.edit-btn {
+  background: #fff;
+  font-weight: bold;
+  padding: 5px 20px;
+	border:1px solid #e4e4e4;
+	color:#999;
+}
+.delete-btn {
+  background: #fff;
+  font-weight: bold;
+  padding: -2px 20px;
+	border:1px solid #e4e4e4;
+	color:#999;
+}
+.content-block{
+	overflow-y: auto;
+	margin-bottom:30px;
+}
+.create-trigger-btn {
+  background: #ffc001 none repeat scroll 0 0;
+  font-weight: bold;
+  padding: 5px 20px;
+	color:#fff;
+}
+
+.create-trigger-btn:hover{
+	color: #fff;
+}
+.create-tag-btn {
+  background: #8494D6;
+  font-weight: bold;
+  padding: 5px 20px;
+	color:#fff;
+}
+.create-tag-btn:hover {
+	color:#fff;
+}
+
+.create-user-btn {
+  background: #F4396D;
+  font-weight: bold;
+  padding: 5px 20px;
+	color:#fff;
+}
+.create-user-btn:hover {
+	color:#fff;
+}
+.content-block h2{
+	font-size:18px;
+	font-weight: normal;
+	margin:0;
+}
+.dropdown-content {
+  padding: 10px 0px;
+}
+.green-drop {
+  background: #34ae22;
+  padding:3px 15px 3px 3px;
+  color: #fff;
+	display:inline-block;
+	border:none;
+	min-width: 110px;
+	cursor: pointer;
+}
+.orange-drop {
+  background: #ffc001;
+  padding: 3px 15px 3px 3px;
+  color: #fff;
+	display:inline-block;
+	border:none;
+	margin-left:15px;
+	min-width: 110px;
+	cursor: pointer;
+}
+.dropdown-content .dropdown{
+	display:inline;
+}
+.dropdown-content .dropdown .dropdown-menu{
+	margin: 10px 0 0;
+}
+.coin-tab-table > tbody > tr:nth-child(even) {
+  background-color: #fff;
+}
+.coin-tab-table  > tbody > tr:nth-child(odd) {
+  background-color: #F4F4F4;
+}
+.history-tab-table > tbody > tr:nth-child(even) {
+  background-color: #fff;
+}
+.history-tab-table  > tbody > tr:nth-child(odd) {
+  background-color: #EDEDED;
+}
+table tr th i{
+	margin-right:5px;
+}
+
+#nav-top-right .dropdown .dropdown-toggle {
+  background-color: #45aadd;
+  border-radius: 8px;
+  color: #fff;
+  line-height: 20px;
+  padding-bottom: 15px;
+  padding-top: 15px;
+	margin:10px 10px 0px 0px;
+}
+.navbar-toggle {
+  background-color: #333;
+}

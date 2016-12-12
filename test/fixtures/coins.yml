@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  coinTypeObjectID: MyString
+  cointTypeName: MyString
+  userID: MyString
+  creatorID: MyString
+  expiryDate: 2016-07-06
+  isPossibleTrade: false
+  isCustomCoin: false
+  priceOneCoin: MyString
+  totalAmountPoints: MyString
+  imgQrCodeUrl: MyString
+
+two:
+  coinTypeObjectID: MyString
+  cointTypeName: MyString
+  userID: MyString
+  creatorID: MyString
+  expiryDate: 2016-07-06
+  isPossibleTrade: false
+  isCustomCoin: false
+  priceOneCoin: MyString
+  totalAmountPoints: MyString
+  imgQrCodeUrl: MyString

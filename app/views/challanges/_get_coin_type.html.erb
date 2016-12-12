@@ -1,0 +1,16 @@
+<% if params[:type].eql?("Coin")%>
+  <div class="form-group">
+    <label for="coinTypeName">coinTypeName</label>
+	  <%= text_field_tag "coinTypeName",nil,class: "form-control",required: :true,value: @cointype["cointTypeName"],readonly: true%>
+  </div>
+<%elsif params[:type].eql?("coinTypeObject")%>
+  <div class="form-group">
+    <label for="cointTypeName">cointTypeName</label>
+    <%= text_field_tag "coin[cointTypeName]",nil,class: "form-control",value: @cointype["cointTypeName"],readonly: true%>
+  </div>
+<%else%>
+	<div class="form-group">
+	  <label for="rewardCoinTypeName">rewardCoinTypeName</label>
+	  <%= text_field_tag "rewardCoinTypeName",nil,class: "form-control",required: :true,value: @cointype["cointTypeName"],readonly: true%>
+	</div>
+<%end%>

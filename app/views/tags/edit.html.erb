@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="col-md-10">
+    <h3>Edit Tag</h3>
+    <%= form_tag update_tag_tag_path(@tag["objectId"]),method: "put" do %>
+      <div class="form-group">
+        <label for="TagName">TagName</label>
+        <%= text_field_tag "TagName",nil,class: "form-control",value: @tag["TagName"],required: :true%>
+      </div>
+      <div class="form-group">
+        <label for="coinTypeObjectID">coinTypeObjectID</label>
+        <%= select_tag 'coinTypeObjectID',options_for_select(@coin_types.collect{ |u| u}),prompt: "Select",class: "form-control"%>
+      </div>
+      <div class="form-group">
+        <label for="userID">userID</label>
+        <%= select_tag 'userID',options_for_select(@users.collect{ |u| u["objectId"]}),prompt: "Select",class: "form-control"%>
+      </div>
+      <div class="form-group">
+        <label for="creatorID">creatorID</label>
+        <%= text_field_tag "creatorID",nil,class: "form-control",value: @user["objectId"],readonly: true%>
+      </div>
+      <div class="form-group">
+        <label for="username">UserName</label>
+        <%= select_tag 'username',options_for_select(@user_names.collect{ |u| u}),prompt: "Select",class: "form-control"%>
+      </div>
+      <div class="form-group">
+        <label for="totalAmountPoints">totalAmountPoints</label>
+        <%= text_field_tag "totalAmountPoints",nil,class: "form-control",value: @tag["totalAmountPoints"],required: :true%>
+      </div>
+      <%= submit_tag "Update Tag",class: "btn btn-primary"%>
+      <%= link_to "Back",dashboard_path,class: "btn btn-warning"%>
+    <%end%>
+  </div>
+</div>
+

@@ -1,0 +1,106 @@
+<div id="wrapper"> 
+  <!-- Navigation -->
+  <%= render 'parse/navbar'%>
+  <div id="page-wrapper">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12"> 
+          <div class="card">
+            <%= render 'parse/dashboard_tabs'%>
+            <div class="tab-content">
+              <div role="tabpanel" class="tab-pane" id="history">
+                <div class="content-block">
+                  <div class="top-content">
+                    <div class="col-md-10 col-xs-8 clear-box"> </div>
+                    <div class="col-md-2 col-xs-4 clear-box">
+                    </div>
+                  </div>
+                  <%= render 'index'%>
+                </div>
+                <div class="content-block">
+                  <div class="col-md-6">
+                    <h2>Sender Ranking</h2><br>
+                    <div class="row">
+                      <div class="col-md-2">
+                       <%= select_tag 'history_cointype', options_for_select(@coin_types.collect{ |u| u},selected: "ZBB"),class: "sender_cointype_select btn btn-default green-drop" unless @coin_types.nil?%>
+                       </div>
+                       <div class="col-md-2">
+                       <%= select_tag 'history_cointype', options_for_select(@history_tags.collect{ |u| u},selected: "[\"#zas\"]"),class: "sender_tag_select btn btn-default orange-drop",style:"width: 26%;margin-left: 50px;"unless @history_tags.nil? %>
+                       </div>
+                     </div>
+                     <br><br>
+                     <div class="clearfix"></div>
+                     <div id="sender-rank-list">
+                      <%= render 'sender_rank_list'%>
+                     </div>
+                  </div>
+                  <div class="col-md-6">
+                    <h2>Reciever Ranking</h2><br>
+                    <div class="row">
+                    <div class="col-md-2">
+                     <%= select_tag 'history_cointype', options_for_select(@coin_types.collect{ |u| u},selected: "ZBB"),class: "receiver_cointype_select btn btn-default green-drop" unless @coin_types.nil? %>
+                     </div>
+                     <div class="col-md-2">
+                     <%= select_tag 'history_cointype', options_for_select(@history_tags.collect{ |u| u},selected: "[\"#zas\"]"),class: "receiver_tag_select btn btn-default orange-drop",style:"width: 26%;margin-left: 50px;" unless @history_tags.nil? %>
+                     </div>
+                     </div>
+                     <br><br>
+                    <div class="clearfix"></div>
+                    <div id="receiver-rank-list">
+                      <%= render 'receiver_rank_list'%>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> 
+  </div>
+</div>
+
+<style type="text/css">
+  .tab-content>.tab-pane{
+    display: block !important;
+  }
+</style>
+
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+  $(".sender_cointype_select").change(function(){
+    selected_tag = $(".sender_tag_select").val()
+    $.ajax({
+      method: 'get',
+      url: 'histories/history_coin_tag_rank',
+      data: {coinType: this.value,tag: selected_tag,type: "Sender"}
+    });
+  });
+  $(".sender_tag_select").change(function(){
+    selected_coin_type = $(".sender_cointype_select").val()
+    $.ajax({
+      method: 'get',
+      url: 'histories/history_coin_tag_rank',
+      data: {coinType: selected_coin_type,tag: this.value,type: "Sender"}
+    });
+  });
+  $(".receiver_cointype_select").change(function(){
+    selected_tag = $(".receiver_tag_select").val()
+    $.ajax({
+      method: 'get',
+      url: 'histories/history_coin_tag_rank',
+      data: {coinType: this.value,tag: selected_tag,type: "Receiver"}
+    });
+  });
+  $(".receiver_tag_select").change(function(){
+    selected_coin_type = $(".receiver_cointype_select").val()
+    $.ajax({
+      method: 'get',
+      url: 'histories/history_coin_tag_rank',
+      data: {coinType: selected_coin_type,tag: this.value,type: "Receiver"}
+    });
+  });
+});
+</script>

@@ -1,0 +1,61 @@
+<div class="container">
+	<h3>History</h3>
+	<p>
+		<strong>ObjectId:</strong>
+		<%= @history["objectId"]%>
+	</p>
+	<p>
+		<strong>senderName:</strong>
+		<%= @history["senderName"]%>
+	</p>
+	<p>
+		<strong>tagName:</strong>
+		<%= @history["tagName"]%>
+	</p>
+	<p>
+		<strong>receiverAddress:</strong>
+		<%= @history["receiverAddress"]%>
+	</p>
+	<p>
+		<strong>coinTypeID:</strong>
+		<%= @history["coinTypeID"]%>
+	</p>
+	<p>
+		<strong>receiverID:</strong>
+		<%= @history["receiverID"]%>
+	</p>
+	<p>
+		<strong>commentString:</strong>
+		<%= @history["commentString"]%>
+	</p>
+	<p>
+		<strong>coinTypeName:</strong>
+		<%= @history["coinTypeName"]%>
+	</p>
+	<p>
+		<strong>amountReceived:</strong>
+		<%= @history["amountReceived"]%>
+	</p>
+	<p>
+		<strong>receiverName:</strong>
+		<%= @history["receiverName"]%>
+	</p>
+	<p>
+		<strong>senderUserID:</strong>
+		<%= @history["senderUserID"]%>
+	</p>
+	<p>
+		<strong>senderAddress:</strong>
+		<%= @history["senderAddress"]%>
+	</p>
+	<p>
+		<strong>createdAt:</strong>
+		<%= (@history["createdAt"]).to_time.strftime("%d %b %Y")%>
+	</p>
+	<p>
+		<strong>updatedAt:</strong>
+		<%= (@history["updatedAt"]).to_time.strftime("%d %b %Y")%>
+	</p><br><br>
+	<%= link_to "Dashboard",dashboard_path,class: "btn btn-warning"%>
+</div>
+<br><br>

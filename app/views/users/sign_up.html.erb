@@ -1,0 +1,64 @@
+<div class="">
+  <div class="">
+    <div class="main">
+      <h3>Please Sign Up, or <a href="<%= sign_in_users_path %>">Sign In</a></h3>
+      <div class="login-or">
+        <hr class="hr-or">
+        <span class="span-or">or</span>
+      </div>
+      <%= form_for(User.new,url: create_sign_up_users_path) do |f|%>
+        <div class="form-group">
+          <label for="username">username</label>
+          <%= f.text_field :username, class: "form-control",required: :true%>
+        </div>
+        <div class="form-group">
+          <label for="profilename">profileName</label>
+          <%= f.text_field :profileName,class: "form-control",required: :true%>
+        </div>
+        <div class="form-group">
+          <label for="playerIdForPush">playerIdForPush</label>
+          <%= f.text_field :playerIdForPush,class: "form-control",required: :true%>
+        </div>
+        <div class="form-group">
+          <label for="coinsparkAddress">coinsparkAddress</label>
+          <%= f.text_field :coinsparkAddress,class: "form-control",required: :true%>
+        </div>
+        <div class="form-group">
+          <label for="bitcoinAddress">bitcoinAddress</label>
+          <%= f.text_field :bitcoinAddress,class: "form-control",required: :true%>
+        </div>
+        <div class="form-group">
+          <label for="bitcoinPassword">bitcoinPassword</label>
+          <%= f.text_field :bitcoinPassword,class: "form-control",required: :true%>
+        </div>
+        <div class="form-group">
+          <label for="imgQrCode">imgQrCodeUrl</label>
+          <%= f.file_field :imgQrCode,required: :true%>
+        </div>
+        <div class="form-group">
+          <label for="photo">photoUrl</label>
+          <%= f.file_field :photo,required: :true%>
+        </div>
+        <div class="form-group">
+            <label for="role_type">rolename</label>
+            <%= select_tag 'role_type', options_for_select(@roles.collect{ |u| u}),class: "form-control",required: :true %>
+        </div>
+        <div class="form-group">
+          <label for="phone">phone</label>
+          <%= f.text_field :phone,class: "form-control",required: :true%>
+        </div>
+        <div class="form-group">
+          <label for="email">email</label>
+          <%= f.email_field :email,class: "form-control",required: :true%>
+        </div>
+        <div class="form-group">
+          <label for="password">password</label>
+          <%= f.password_field :password,class: "form-control",required: :true%>
+        </div>
+        <%= f.submit "Sign Up",class: "btn btn btn-primary"%>
+      <%end%>
+    </div>
+  </div>
+</div><br><br>
+
+

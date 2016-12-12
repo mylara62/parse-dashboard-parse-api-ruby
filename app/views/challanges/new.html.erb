@@ -1,0 +1,79 @@
+<div class="container">
+  <div class="col-md-10">
+    <h3>New Trigger</h3>
+    <%= form_tag trigger_create_challanges_path,method: "post" do %>
+      <div class="form-group">
+        <label for="period">period</label>
+        <%= text_field_tag "period",nil,class: "form-control",required: :true,placeholder: "ex: 10"%>
+      </div>
+      <div class="form-group">
+        <label for="actionName">actionName</label>
+        <%= text_field_tag "actionName",nil,class: "form-control",required: :true,placeholder: "ex: GPS"%>
+      </div>
+      <div class="form-group">
+        <label for="expiryDate">expiryDate</label>
+        <%= text_field_tag "expiryDate",nil,class: "trigger_datepicker form-control",required: :true,autocomplete: :off%>
+      </div>
+      <div class="form-group">
+        <label for="rewardCoinTypeID">rewardCoinTypeID</label>
+        <%= select_tag 'rewardCoinTypeID', options_for_select(@coin_types.collect{ |u| u}),prompt: "Select",class: "form-control",required: :true %>
+      </div>
+      <div id="rewardcointypename">
+        <div class="form-group">
+          <label for="rewardCoinTypeName">rewardCoinTypeName</label>
+          <%= text_field_tag "rewardCoinTypeName",nil,class: "form-control"%>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="coinTypeID">coinTypeID</label>
+        <%= select_tag 'coinTypeID', options_for_select(@coin_types.collect{ |u| u}),prompt: "Select",class: "form-control",required: :true %>
+      </div>
+      <div id="cointypename">
+        <div class="form-group">
+          <label for="coinTypeName">coinTypeName</label>
+          <%= text_field_tag "coinTypeName",nil,class: "form-control"%>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="creatorID">creatorID</label>
+        <%= text_field_tag "creatorID",nil,class: "form-control",value: @user["objectId"],readonly: true%>
+      </div>
+      <div class="form-group">
+        <label for="coinID">coinID</label>
+        <%= select_tag 'coinID', options_for_select(@coins.collect{ |u| u}),prompt: "Select",class: "form-control",required: :true %>
+      </div>
+      <div class="form-group">
+        <label for="groupName">groupName</label>
+        <%= text_field_tag "groupName",nil,class: "form-control",required: :true,placeholder: "ex: Tokyo"%>
+      </div>
+      <div class="form-group">
+        <label for="challengeStatus">challengeStatus</label>
+        <%= select_tag 'challengeStatus', options_for_select(@status_types.collect{ |u| u}),prompt: "Select",class: "form-control",required: :true %>
+      </div>
+      <div class="form-group">
+        <label for="tags">tags</label>
+        <%= select_tag 'tags', options_for_select(@tags.collect{ |u| u}),prompt: "Select",class: "form-control",required: :true %>
+        <%#= text_field_tag "tags",nil,class: "form-control",required: :true,placeholder: "ex: #seven"%>
+      </div>
+      <div class="form-group">
+        <label for="amountCoinsReward">amountCoinsReward</label>
+        <%= text_field_tag "amountCoinsReward",nil,class: "form-control",required: :true,placeholder: "ex: 20"%>
+      </div>
+      <div class="form-group">
+        <label for="numberOfRepeat">numberOfRepeat</label>
+        <%= select_tag 'numberOfRepeat', options_for_select(@repeat_amounts.collect{ |u| u}),prompt: "Select",class: "form-control",required: :true%>
+      </div>
+      <%= submit_tag "Create Trigger",class: "btn btn-primary"%>
+      <%= link_to "Back",dashboard_path,class: "btn btn-warning"%>
+    <%end%>
+  </div>
+</div>
+<br><br>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('.trigger_datepicker').datepicker({
+      format: 'yyyy-mm-dd'
+    });
+  });
+</script>

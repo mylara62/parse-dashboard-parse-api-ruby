@@ -1,0 +1,8 @@
+<% if params[:type].eql?("Sender")%>
+	$("#sender-rank-list").html("<%= j(render 'sender_rank_list')%>")
+<% elsif params[:type].eql?("Receiver")%>
+	$("#receiver-rank-list").html("<%= j(render 'receiver_rank_list')%>")
+<%else%>
+	$("#sender-rank-list").html("<%= j(render 'sender_rank_list')%>")
+	$("#receiver-rank-list").html("<%= j(render 'receiver_rank_list')%>")
+<%end%>

@@ -1,0 +1,35 @@
+<div id="wrapper"> 
+  <!-- Navigation -->
+  <%= render 'parse/navbar'%>
+  <div id="page-wrapper">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12"> 
+          <div class="card">
+            <%= render 'parse/dashboard_tabs'%>
+            <div class="tab-content">
+              <div role="tabpanel" class="tab-pane" id="tag">
+                <div class="content-block">
+                  <div class="top-content">
+                    <div class="col-md-10 col-xs-8 clear-box">
+                      <%= link_to "Create Tags",new_tag_path,class: "btn create-tag-btn"%>
+                    </div>
+                    <div class="col-md-2 col-xs-4 clear-box">
+                    </div>
+                  </div>
+                  <%= render 'index'%>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> 
+  </div>
+</div>
+
+<style type="text/css">
+  .tab-content>.tab-pane{
+    display: block !important;
+  }
+</style>

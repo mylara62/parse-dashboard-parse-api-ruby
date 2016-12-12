@@ -1,0 +1,20 @@
+<table class="table table-hover table-striped details-table coin-tab-table" id="sender_rank_table">
+  <thead>
+    <tr>
+      <th>Ranking</th>
+      <th class="action">User Name</th>
+      <th class="action">Amount</th>
+    </tr>
+  </thead>
+  <% unless @sender_history_ranks.nil? %>
+   <% @sender_history_ranks.each_with_index do |send_rank,index|%>
+    <tbody>
+      <tr>
+        <td><%= index + 1 %></td>
+        <td><%= send_rank[:sender_name]%></td>
+        <td><%= send_rank[:total_amount]%></td>
+      </tr>
+    </tbody>
+   <%end%>
+  <%end%>
+</table>

@@ -1,0 +1,57 @@
+<div class="container">
+	<h3>User</h3>
+	<p>
+		<strong>ObjectId:</strong>
+		<%= @user["objectId"]%>
+	</p>
+	<p>
+		<strong>playerIdForPush:</strong>
+		<%= @user["playerIdForPush"]%>
+	</p>
+	<p>
+		<strong>coinsparkAddress:</strong>
+		<%= @user["coinsparkAddress"]%>
+	</p>
+	<p>
+		<strong>profileName:</strong>
+		<%= @user["profileName"]%>
+	</p>
+	<p>
+		<strong>username:</strong>
+		<%= @user["username"]%>
+	</p>
+	<p>
+		<strong>bitcoinPassword:</strong>
+		<%= @user["bitcoinPassword"]%>
+	</p>
+	<p>
+		<strong>imgQrCodeUrl:</strong><br><br>
+		<%= image_tag @user["imgQrCodeUrl"],style: "width: 20%" rescue nil%>
+	</p>
+	<p>
+		<strong>photoUrl:</strong><br><br>
+		<%= image_tag @user["photoUrl"],style: "width: 20%" rescue nil%>
+	</p>
+	<p>
+		<strong>rolename:</strong>
+		<%= @user["role_name"]%>
+	</p>
+	<p>
+		<strong>email:</strong>
+		<%= @user["email"]%>
+	</p>
+	<p>
+		<strong>phone:</strong>
+		<%= @user["phone"]%>
+	</p>
+	<p>
+		<strong>createdAt:</strong>
+		<%= (@user["createdAt"]).to_time.strftime("%d %b %Y")%>
+	</p>
+	<p>
+		<strong>updatedAt:</strong>
+		<%= (@user["updatedAt"]).to_time.strftime("%d %b %Y")%>
+	</p><br><br>
+	<%= link_to "Dashboard",dashboard_path,class: "btn btn-warning"%>
+</div>
+<br><br>

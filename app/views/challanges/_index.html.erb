@@ -1,0 +1,36 @@
+<% if @user["role_name"].eql?("User")%>
+  <h2>Triggers</h2><br>
+<%end%>
+<div>
+  <table class="table table-hover table-striped details-table coin-tab-table" id="trigger_table">
+    <thead>
+      <tr>
+        <th class="action">Reward Coin</th>
+        <th class="action">Tags</th>
+        <th>Expire Date</th>
+        <th>Created At</th>
+        <th class="action">Points for Period</th>
+        <th class="action">Period</th>
+        <th class="action">Actions</th>
+      </tr>
+    </thead>
+    <% if !(@triggers_details.nil?) %>
+      <% @triggers_details.each do |trigger|%>
+        <tbody>
+          <tr>
+            <td><%= trigger["rewardCoinTypeName"]%></td>
+            <td><%= trigger["tags"]%></td>
+            <td><%= trigger["expiryDate"]%></td>
+            <td><%= (trigger["createdAt"]).to_time.strftime("%d %b %y")%></td>
+            <td><%= trigger["numberOfRepeat"]%></td>
+            <td><%= trigger["period"]%></td>
+            <td>
+              <%= link_to "Edit",edit_challange_path(trigger["objectId"]),class: "btn edit-btn"%>
+              <%= link_to 'Delete', challange_path(trigger["objectId"]),method: :delete, :data => {:confirm => 'Are you sure?'},class: "btn delete-btn" %>
+            </td>
+          </tr>
+        </tbody>
+      <%end%>
+    <%end%>
+  </table>
+</div>

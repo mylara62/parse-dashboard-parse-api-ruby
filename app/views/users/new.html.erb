@@ -1,0 +1,57 @@
+<div class="container">
+ <div class="col-md-10">
+  <%= form_for(User.new) do |f|%>
+    <div class="form-group">
+      <label for="username">username</label>
+      <%= f.text_field :username, class: "form-control",required: :true%>
+    </div>
+    <div class="form-group">
+      <label for="profilename">profileName</label>
+      <%= f.text_field :profileName,class: "form-control",required: :true%>
+    </div>
+    <div class="form-group">
+      <label for="playerIdForPush">playerIdForPush</label>
+      <%= f.text_field :playerIdForPush,class: "form-control",required: :true%>
+    </div>
+    <div class="form-group">
+      <label for="coinsparkAddress">coinsparkAddress</label>
+      <%= f.text_field :coinsparkAddress,class: "form-control",required: :true%>
+    </div>
+    <div class="form-group">
+      <label for="bitcoinAddress">bitcoinAddress</label>
+      <%= f.text_field :bitcoinAddress,class: "form-control",required: :true%>
+    </div>
+    <div class="form-group">
+      <label for="bitcoinPassword">bitcoinPassword</label>
+      <%= f.text_field :bitcoinPassword,class: "form-control",required: :true%>
+    </div>
+    <div class="form-group">
+      <label for="imgQrCode">imgQrCodeUrl</label>
+      <%= f.file_field :imgQrCode,required: :true%>
+    </div>
+    <div class="form-group">
+      <label for="photo">photoUrl</label>
+      <%= f.file_field :photo,required: :true%>
+    </div>
+    <div class="form-group">
+      <label for="role_type">role_name</label>
+      <%= select_tag 'role_type', options_for_select(@roles.collect{ |u| u}),class: "form-control",required: :true %>
+    </div>
+    <div class="form-group">
+      <label for="phone">phone</label>
+      <%= f.text_field :phone,class: "form-control",required: :true%>
+    </div>
+    <div class="form-group">
+      <label for="email">email</label>
+      <%= f.email_field :email,class: "form-control",required: :true%>
+    </div>
+    <div class="form-group">
+      <label for="password">password</label>
+      <%= f.password_field :password,class: "form-control",required: :true%>
+    </div>
+    <%= f.submit "Sign Up",class: "btn btn btn-primary"%>
+    <%= link_to "Back",dashboard_path,class: "btn btn-warning"%>
+  <%end%>
+  </div>
+</div>
+<br><br>

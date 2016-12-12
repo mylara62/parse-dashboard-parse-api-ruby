@@ -1,0 +1,32 @@
+<div class="container">
+	<h3>Tag</h3>
+	<p>
+		<strong>ObjectId:</strong>
+		<%= @tag["objectId"]%>
+	</p>
+	<p>
+		<strong>TagName:</strong>
+		<%= @tag["TagName"]%>
+	</p>
+	<p>
+		<strong>coinTypeObjectID:</strong>
+		<%= @tag["coinTypeObjectID"]%>
+	</p>
+	<p>
+		<strong>userID:</strong>
+		<%= @tag["userID"]%>
+	</p>
+	<p>
+		<strong>creatorID:</strong>
+		<%= @tag["creatorID"]%>
+	</p>
+	<p>
+		<strong>UserName:</strong>
+		<%= @tag["UserName"]%>
+	</p>
+	<p>
+		<strong>totalAmountPoints:</strong>
+		<%= @tag["totalAmountPoints"]%>
+	</p><br><br>
+	<%= link_to "Dashboard",dashboard_path,class: "btn btn-warning"%>
+</div>

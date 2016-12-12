@@ -1,0 +1,57 @@
+<div id="wrapper"> 
+  <!-- Navigation -->
+  <%= render 'parse/navbar'%>
+  <div id="page-wrapper">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12"> 
+          <div class="card">
+            <%= render 'parse/dashboard_tabs'%>
+            <div class="tab-content">
+              <div role="tabpanel" class="tab-pane" id="user">
+                <div class="content-block">
+                  <div class="top-content">
+                    <div class="col-md-10 col-xs-8 clear-box">
+                      <%= link_to "Create User",new_user_path,class: "btn create-user-btn" unless @user["role_name"].eql?("User")%>
+                    </div>
+                    <div class="col-md-2 col-xs-4 clear-box">
+                    </div>
+                  </div>
+                  <%= render 'index'%>
+                </div>
+                <div class="content-block">
+                  <div class="col-md-6">
+                    <h2>Coin & Tag Base ranking</h2><br><br>
+                    <%= select_tag 'cointype', options_for_select(@coin_types.collect{ |u| u},selected: "ZBB"),class: "cointype_select btn btn-default green-drop" unless @coin_types.nil? %><br><br>
+                    <div class="clearfix"></div>
+                    <div id="coin_rank">
+                      <%= render 'coin_rank_details'%>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> 
+  </div>
+</div>
+
+<style type="text/css">
+  .tab-content>.tab-pane{
+    display: block !important;
+  }
+</style>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $(".cointype_select").change(function(){
+      $.ajax({
+        method: 'get',
+        url: '/users/coin_rank',
+        data: {coinType: this.value}
+      });
+    });
+  });
+</script>

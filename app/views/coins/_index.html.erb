@@ -1,0 +1,36 @@
+<% if @user["role_name"].eql?("User")%>
+  <h2>Coins</h2><br>
+<%end%>
+<div>
+  <table class="table table-hover table-striped details-table coin-tab-table" id="coin_data">
+    <thead>
+      <tr>
+        <th class="action">Coin Name</th>
+        <th class="action">Total Amount</th>
+        <th class="action">Price One Coin</th>
+        <th>Expire Date</th>
+        <th>Created At</th>
+        <th class="action">Coin Logo File</th>
+        <th class="action">Creator ID</th>
+        <th class="action">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @coins.each do |coin|%>
+        <tr>
+          <td><%= coin["cointTypeName"]%></td>
+          <td><%= coin["totalAmountPoints"]%></td>
+          <td><%= coin["priceOneCoin"]%></td>
+          <td><%= Time.at(coin["expiryDate"].to_i).strftime("%d %b %Y") %></td>
+          <td><%= (coin["createdAt"]).to_time.strftime("%d %b %Y")%></td>
+          <td><%= image_tag coin["imgQrCodeUrl"],style: "width:30%"%></td>
+          <td><%= coin["creatorID"]%></td>
+          <td>
+            <%= link_to "Edit",edit_coin_path(coin["objectId"]),class: "btn edit-btn"%>
+            <%= link_to 'Delete', coin_path(coin["objectId"]),method: :delete, :data => {:confirm => 'Are you sure?'},class: "btn delete-btn" unless @user["role_name"].eql?("User")   %>
+          </td>
+        </tr>
+      <%end%>
+    </tbody>
+  </table>
+</div>

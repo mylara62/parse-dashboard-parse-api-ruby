@@ -1,0 +1,7 @@
+<% if params[:type].eql?("Coin")%>
+	$("#cointypename").html("<%= j(render 'get_coin_type')%>")
+<%elsif params[:type].eql?("coinTypeObject")%>
+	$("#cointypeobjectname").html("<%= j(render 'get_coin_type')%>")
+<%else%>
+	$("#rewardcointypename").html("<%= j(render 'get_coin_type')%>")
+<%end%>

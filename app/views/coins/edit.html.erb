@@ -1,0 +1,94 @@
+<div class="container">
+  <div class="col-md-10">
+  	<h3>Edit Coin</h3>
+  	<%= form_for(Coin.new,url: coin_update_coin_path(@coin["objectId"])) do |f|%>
+  		<!-- <div class="form-group">
+        <label for="coinTypeObjectID">coinTypeObjectID</label>
+        <%#= select_tag 'coin[coinTypeObjectID]', options_for_select(@coin_types.collect{ |u| u}),prompt: "Select",class: "form-control",value: @coin["coinTypeObjectID"],required: :true %>
+      </div> -->
+      <div id="cointypeobjectname">
+        <div class="form-group">
+          <label for="cointTypeName">cointTypeName</label>
+          <%= f.text_field :cointTypeName,class: "form-control",value: @coin["cointTypeName"],required: :true%>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="userID">userID</label>
+        <%= select_tag 'coin[userID]',options_for_select(@users.collect{ |u| u["objectId"]}),prompt: "Select",class: "form-control"%>
+        <%#= f.text_field :userID,class: "form-control",value: @user["objectId"],readonly: true%>
+      </div>
+      <div class="form-group">
+        <label for="creatorID">creatorID</label>
+        <%= f.text_field :creatorID,class: "form-control",value: @user["objectId"],readonly: true%>
+      </div>
+      <div class="form-group">
+        <label for="expiryDate">expiryDate</label>
+        <%= f.text_field :expiryDate,class: "datepicker form-control",required: true,value: (@coin["expiryDate"]).to_time.strftime("%d %b %Y")%>
+      </div>
+      <div class="form-group">
+        <label for="imgQrCodeUrl">imgQrCode</label>
+        <%= f.file_field :imgQrCodeUrl,class: "form-control",required: true,value: @coin["imgQrCodeUrl"]%>
+      </div>
+      <div class="form-group">
+        <label for="isPossibleTrade">isPossibleTrade</label><br>
+        <%= f.radio_button :isPossibleTrade,true%>
+        <%= label_tag "True"%>
+        <%= f.radio_button :isPossibleTrade,false%>
+        <%= label_tag "False"%>
+      </div>
+      <div class="form-group">
+        <label for="isCustomCoin">isCustomCoin</label><br>
+        <%= f.radio_button :isCustomCoin,true%>
+        <%= label_tag "True"%>
+        <%= f.radio_button :isCustomCoin,false%>
+        <%= label_tag "False"%>
+      </div>
+      <div class="form-group">
+        <label for="priceOneCoin">priceOneCoin</label>
+        <%= f.text_field :priceOneCoin,class: "form-control",value: @coin["priceOneCoin"],required: :true%>
+      </div>
+      <div class="form-group">
+        <label for="totalAmountPoints">totalAmountPoints</label>
+        <%= f.text_field :totalAmountPoints,class: "form-control",value: @coin["totalAmountPoints"],required: :true%>
+      </div>
+      <div class="form-group">
+      	<%= f.submit "Update Coin",class: "btn btn-primary"%>
+        <%= link_to "Back",dashboard_path,class: "btn btn-warning"%>        
+      </div>
+  	<%end%>
+  </div>
+</div>
+
+<script type="text/javascript">
+  if(document.getElementById){
+    if (<%=@coin["isPossibleTrade"]%> != true){
+      // Radiobutton "No" should be selected.
+        document.getElementById('coin_isPossibleTrade_true').checked = false;
+        document.getElementById('coin_isPossibleTrade_false').checked = true;
+      }
+      else if (<%=@coin["isPossibleTrade"]%> != false){
+      // Radiobutton "Yes" should be selected.
+        document.getElementById('coin_isPossibleTrade_false').checked = false;
+        document.getElementById('coin_isPossibleTrade_true').checked = true;
+      }
+
+     if (<%=@coin["isCustomCoin"]%> != true){
+      // Radiobutton "No" should be selected.
+        document.getElementById('coin_isCustomCoin_true').checked = false;
+        document.getElementById('coin_isCustomCoin_false').checked = true;
+      }
+      else if (<%=@coin["isCustomCoin"]%> != false){
+      // Radiobutton "Yes" should be selected.
+        document.getElementById('coin_isCustomCoin_false').checked = false;
+        document.getElementById('coin_isCustomCoin_true').checked = true;
+      }
+  }
+</script>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('.datepicker_coin').datepicker({
+      format: 'yyyy-mm-dd'
+    });
+  });
+</script>

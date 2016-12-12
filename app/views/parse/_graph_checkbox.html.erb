@@ -1,0 +1,29 @@
+<% unless @coin_types.nil? %>
+  <% @coin_types.each do |coin_type| %>
+  	<div class="checkbox">
+  		<label>
+  			<b><input type="checkbox" value="<%= coin_type %>" id="coin_type_check" class="coin_type_checkbox">
+  				<%= coin_type %></b>
+  		</label>
+  	</div>
+  <%end%>
+<%else%>
+  <h4>No data available</h4>
+<%end%><br/>
+
+<script type="text/javascript">
+  $('input.coin_type_checkbox').on('change', function() {
+    $('input.coin_type_checkbox').not(this).prop('checked', false);  
+  });
+</script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$(".coin_type_checkbox").change(function(){
+			$.ajax({
+				method: "get",
+				url: '/get_graph',
+				data: {coinType: this.value}
+			});
+		});
+	});
+</script>
